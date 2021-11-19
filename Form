@@ -2,12 +2,11 @@
 <br>
 <form id="myForm" class="p-2 border border-light rounded bg-light" onsubmit="handleFormSubmit(this)"> <!-- Call JavaScript function "handleFormSubmit" -->
     <p class="h4 mb-4 text-center">ระบบการขอใช้ห้องเรียนตึก 63</p>
-    <div id="message"></div>
-  
     
+ 
 	<div class="form-group">
-		<label for="RoomID" >RoomID</label>
-		<input type="text" class="form-control" id="RoomID" name="RoomID" placeholder="RoomID" required>
+		<label for="RoomID" >Specify Room</label>
+		<input type="text" class="form-control" id="RoomID" name="RoomID" placeholder="Room" required>
 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-6">
@@ -24,12 +23,12 @@
         
         <div class="form-group col-md-6">
 			<label for="NameRoom">ชื่อ-นามสกุล </label>
-			<input type="text" class="form-control" id="NameRoom" name="ผู้ขอใช้ห้องเรียน">
+			<input type="text" class="form-control" id="NameRoom" name="NameRoom">
 		</div>
         
 		<div class="form-group col-md-6">
 			<label for="RequestDate">วันที่ขอเข้าใช้ห้องเรียน</label>
-			<input type="date" class="form-control" id="RequestDate" name="">
+			<input type="date" class="form-control" id="RequestDate" name="RequestDate">
 		</div>
 	</div>
 	<div class="form-group">
