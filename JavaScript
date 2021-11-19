@@ -30,7 +30,7 @@
   
   //GET ALL DATA
   function getAllData(){
-    //document.getElementById('dataTable').innerHTML = "";
+    //document.getElementById('DataTable').innerHTML = "";
     google.script.run.withSuccessHandler(createTable).getAllData();
   }
   
@@ -43,7 +43,8 @@
                      "<tr>"+                               //Change table headings to match witht he Google Sheet
                       "<th scope='col'>ลบ</th>"+ 
                       "<th scope='col'>แก้ไข</th>"+
-                      "<th scope='col'>RoomID</th>"+
+                      "<th scope='col'>ID Room</th>"+
+                      "<th scope='col'>Specify Room</th>"+
                       "<th scope='col'>ประเภทผู้ขอใช้ห้องเรียน</th>"+
                       "<th scope='col'>ชื่อ ผู้ขอใช้ห้องเรียน</th>"+
                       "<th scope='col'>วันที่ขอเข้าใช้ห้องเรียน</th>"+
@@ -90,12 +91,11 @@
   function populateForm(records){
     
     document.getElementById('RoomID').value = records[0][0];
-    document.getElementById(records[0][1] =='อาจารย์'? 'ma':'fe').checked = true;
+    document.getElementById(records[0][1] =="อาจารย์"? 'ma':'fe').checked = true;
     document.getElementById('NameRoom').value = records[0][2];
     document.getElementById('RequestDate').value = records[0][3];
     document.getElementById('RData').value = records[0][4];
-    document.getElementById("RData1").value = records[0][5];
-    document.getElementById("message").innerHTML = "<div class='alert alert-warning' role='alert'>Update Record [ID: "+records[0][0]+"]</div>";
+    document.getElementById('RData1').value = records[0][5];
   }
   
 
