@@ -7,19 +7,18 @@ function doGet(request) {
 function globalVariables(){ 
   var varArray = {
     spreadsheetId   : '17WVzv2cjxs1S-tEAfDLWfn4t1A8ldVb07x5VqAxDw5Q', 
-    dataRage        : 'data!A2:F',                                    
+    dataRage        : 'data!A2:G',                                    
     idRange         : 'data!A2:A',                                    
-    lastCol         : 'F',                                            
-    insertRange     : 'data!A1:F1',                                   
+    lastCol         : 'G',                                            
+    insertRange     : 'data!A1:G1',                                   
     sheetID         : '0'                                             
   };
   return varArray;
 }
 
-
 function processForm(formObject){  
-  if(formObject.RecId && checkID(formObject.RecId)){//Execute if form passes an ID and if is an existing ID
-    updateData(getFormValues(formObject),globalVariables().spreadsheetId,getRangeByID(formObject.RecId)); // Update Data
+  if(formObject.RoomID && checkID(formObject.RoomID)){//Execute if form passes an ID and if is an existing ID
+    updateData(getFormValues(formObject),globalVariables().spreadsheetId,getRangeByID(formObject.RoomID)); // Update Data
   }else{ //Execute if form does not pass an ID
     appendData(getFormValues(formObject),globalVariables().spreadsheetId,globalVariables().insertRange); //Append Form Data
   }
@@ -29,19 +28,19 @@ function processForm(formObject){
 
 function getFormValues(formObject){
 
-  if(formObject.RecId && checkID(formObject.RecId)){
-    var values = [[formObject.RecId.toString(),
+  if(formObject.RoomID && checkID(formObject.RoomID)){
+    var values = [
                    
                   formObject.RoomID,
-                  formObject.Utype,
+                  formObject.gender,
                   formObject.NameRoom,
                   formObject.RequestDate,
                   formObject.RData,
-                  formObject.RData1]];
+                  formObject.RData1];
   }else{
-    var values = [[new Date().getTime().toString(),
+    var values = [[new Date().getTime(),
                    formObject.RoomID,
-                  formObject.Utype,
+                  formObject.gender,
                   formObject.NameRoom,
                   formObject.RequestDate,
                   formObject.RData,
@@ -222,7 +221,7 @@ function uploadFiles(form) {
         file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.COMMENT);
     var url = file.getUrl()
     var ur2 = file.getUr2()
-    var home = "https://script.google.com/macros/s/AKfycbyXMcQ2fGhjJE5noYySsnaFRtBRKXT6CHbcwIwZ2R2sibzQy5oS/exec";
+   
     
     ss.appendRow([new Date(),  url ])
       
